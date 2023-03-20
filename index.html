@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <title>Memory Game</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="index.css?newversion" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 
 </head>
 <body>
@@ -14,8 +18,28 @@
     <span>Start Game</span>
 
 </div>
+
+
+
+<div class="holder">
+    <div class="victory">
+        <h3>Congratulation !</h3>
+        <span class="restart">Try Again</span>
+    </div>
+    <div class="Players">
+        <a class="right-arrow">></a>
+        <a class="left-arrow"><</a>
+        <h3>Top score</h3>
+        <ul class="scores">
+            <li><span class="username">Name</span> <span class="score">Score</span></li>
+            <li><span class="username">Wassim</span> <span class="score">15</span></li>
+            <li><span class="username">Anis</span> <span class="score">20</span></li>
+            <li><span class="username">Houssam</span> <span class="score">25</span></li>
+        </ul>
+    </div>
+<div class="container">
 <div class="info-container">
-    <div class="name"> Hello: <span></span></div>
+    <div class="name"> User: <span></span></div>
     <div class="tries">Wrong tries: <span>0</span></div>
 </div>
 <div class="memory-game-blocks">
@@ -153,8 +177,11 @@
         </div>
     </div>
 </div>
+</div>
+</div>
 <audio id='success' src="audio/success.mp3" preload="auto"></audio>
 <audio id='error' src="audio/error.mp3" preload="auto"></audio>
-<script src="index.js?newversion"></script>
+<audio id='victory' src="audio/victory.mp3" preload="auto"></audio>
+<script src="index.js"></script>
 </body>
 </html>

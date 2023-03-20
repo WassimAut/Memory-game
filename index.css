@@ -5,17 +5,53 @@ margin:0;
 }
 
 body{
+
 font-family:Arial,Tahoma,sans-serif;
+background-image:url('images/game-background1.jpg');
+background-size:cover;
+
 }
+
+.container{
+padding-right:15px;
+padding-left:15px;
+margin-right:auto;
+margin-left:auto;
+}
+
+/*small devices*/
+@media(min-width:768px){
+.container{
+
+width:750px;
+}
+}
+
+/*medium devices*/
+@media(min-width:992px){
+.container{
+
+width:970px;
+}
+}
+
+/*big devices*/
+@media(min-width:1200px){
+.container{
+width:1170px;
+}
+}
+
 .is-flipped{
 transform:rotateY(180deg);
 }
+
 .freez{
 pointer-events:none;
 }
 .control-button{
 position:fixed;
-z-index:1;
+z-index:5;
 width:100%;
 height:100%;
 left:0;
@@ -35,45 +71,174 @@ font-size:30px;
 background-color:orange;
 border-radius:5px;
 }
-.info-container{
-width:1080px;
-margin:20px auto 0;
-padding:10px;
+
+
+.holder{
+position:relative;
+overflow:hidden;
+height:100vh;
+}
+
+.holder .victory{
+    position: absolute;
+    text-align: center;
+    color:white;
+    width: 100%;
+    height: 187px;
+    padding-top: 10px;
+    background-color: #2196f3a8;
+    top: 50%;
+    right: -100%;
+    transform: translateY(-50%);
+    z-index: 3;
+    transition:0.5s;
+}
+
+.holder .victory h3{
+font-weight: bold;
+font-size: 46px;
+}
+
+.holder .victory span{
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 30px;
+    background-color: orange;
+    border-radius: 5px;
+}
+
+
+
+
+
+.holder .Players a:first-child{
+position:absolute;
 display:flex;
-font-size:24px;
-background-color:white;
+align-items:center;
+color:white;
+font-weight:bold;
+font-size: 20px;
+width: 15px;
+height: 31px;
+border-top-right-radius: 8px;
+border-bottom-right-radius: 5px;
+background-color: #2196f3;
+right: -15px;
+top:50%;
+cursor:pointer;
+transform:translateY(-50%);
+z-index:4;
+}
+
+.holder .Players a:last-of-type{
+position:absolute;
+display:none;
+align-items:center;
+color:white;
+font-weight:bold;
+font-size: 20px;
+width: 15px;
+height: 31px;
+border-top-right-radius: 8px;
+border-bottom-right-radius: 5px;
+background-color: #2196f3;
+right: -15px;
+top:50%;
+cursor:pointer;
+transform:translateY(-50%);
+z-index:4;
+}
+
+
+
+.holder .Players{
+position:absolute;
+width:200px;
+height:100vh;
+padding:10px;
+left:calc(-200px);
+text-align: center;
+color:white;
+background-color:#333333f5;
+z-index:4;
+transition:0.5s;
+}
+
+.holder .Players ul{
+margin-top: 30px;
+font-weight:bold;
+}
+
+.holder .Players ul li{
+display:flex;
 justify-content:space-between;
-border:2px solid black;
+}
+
+.holder .Players ul li:not(:first-child) span.score{
+padding:10px;
+}
+
+.holder .Players ul li:not(:first-child) span.username{
+padding:10px 0;
+}
+
+
+.info-container{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    font-size: 20px;
+    font-weight:bold;
+    color: white;
+    background-color: #2196f3;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .memory-game-blocks{
 display:flex;
-width:1100px;
+width:100%;
+height:calc(100vh - 72px);
 flex-wrap:wrap;
-margin:20px auto;
+margin:20px auto 0;
+gap:10px;
 }
 
 .memory-game-blocks .game-block{
-height:200px;
+flex-basis:calc(100% / 6);
 transition:transform 0.5s;
 transform-style:preserve-3d;
 cursor:pointer;
 position:relative;
-flex:1 0 200px;
-margin:0 10px 20px;
+flex-grow:1;
+}
 
+@media(max-width:500px){
+.memory-game-blocks .game-block{
+flex-basis:calc(100% / 4);
+}
 }
 
 .memory-game-blocks .game-block .front{
 background-color:#333;
-line-height:200px;
+position:relative;
+
 }
 
 .memory-game-blocks .game-block .front::before{
+
 content:"!";
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 font-weight:bold;
 color:white;
-font-size:140px;
+font-size:40px;
 }
 
 .memory-game-blocks .game-block .back{
@@ -82,10 +247,12 @@ transform:rotateY(180deg);
 }
 
 .memory-game-blocks .game-block .back img{
-width:140px;
-height:140px;
-margin-top:30px;
+width:100%;
+height:100%;
+max-width:100%;
+max-height:100%;
 }
+
 .memory-game-blocks .game-block .face{
 position:absolute;
 width:100%;
