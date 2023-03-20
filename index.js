@@ -2,7 +2,7 @@ let wrong= document.querySelector(".tries span");
 let right_arrow=document.querySelector(".right-arrow");
 let left_arrow=document.querySelector(".left-arrow");
 //intialize local storage
-localStorage.getItem('players').getItem !== null ? null :localStorage.setItem('players',JSON.stringify([["player1",100],["player2",100],["player3",100]]));
+localStorage.getItem('players') !== null ? null :localStorage.setItem('players',JSON.stringify([["player1",100],["player2",100],["player3",100]]));
 let scores = JSON.parse(localStorage.getItem('players'));
 right_arrow.onclick=function(){
 document.querySelector(".Players").style.left="0";
